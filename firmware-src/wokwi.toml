@@ -1,0 +1,20 @@
+# Wokwi for VS Code (licença pessoal de 30 dias em wokwi.com/license).
+# Compile com "pio run -e lab" e depois F1 > "Wokwi: Start Simulator".
+#
+# Vantagens sobre o navegador:
+#  - a serial vira uma porta RFC2217 e os scripts leem direto:
+#      py scripts\serial_capture.py --url rfc2217://localhost:4000 --send help --send config
+#  - o gateway embutido resolve "host.wokwi.internal" -> o PC, então o ESP32 simulado
+#    alcança o Mosquitto e o servidor OTA locais (127.0.0.1), sem nenhum serviço externo;
+#  - o net.forward abaixo expõe o /status HTTP do dispositivo ao PC (teste dinâmico de F08):
+#      curl http://localhost:8180/status
+[wokwi]
+version = 1
+firmware = '.pio/build/lab/firmware.bin'
+elf = '.pio/build/lab/firmware.elf'
+rfc2217ServerPort = 4000
+
+# Encaminha a porta 8180 do PC para a porta 80 (servidor HTTP /status) do ESP32 simulado.
+[[net.forward]]
+from = 'localhost:8180'
+to = 'target:80'

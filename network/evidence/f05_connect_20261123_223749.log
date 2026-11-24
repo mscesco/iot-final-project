@@ -1,0 +1,12 @@
+# Evidência F05 - credencial MQTT em texto claro (sem TLS)
+# Método: CONNECT MQTT 3.1.1 enviado por TCP ao broker 127.0.0.1:1883 (sem TLS).
+# Data: 2026-11-23T22:37:49
+# Tamanho do pacote CONNECT: 54 bytes | username='nexasense' | password: 15 bytes
+# Resposta do broker (CONNACK): 20 02 00 00  -> Connection Accepted (0x00)
+# Conclusão: o broker autenticou com usuário e senha trafegando LEGÍVEIS no pacote (nenhuma cifra).
+
+Pacote CONNECT (senha mascarada com **):
+  0000  10 34 00 04 4d 51 54 54 04 c2 00 1e 00 0c 66 30  .4..MQTT......f0
+  0010  35 2d 65 76 69 64 65 6e 63 65 00 09 6e 65 78 61  5-evidence..nexa
+  0020  73 65 6e 73 65 00 0f ** ** ** ** ** ** ** ** **  sense..·········
+  0030  ** ** ** ** ** **                                ······

@@ -1,0 +1,11 @@
+# conectado em 127.0.0.1:1883 rc=Success tls=NAO; assinando nexahome/#
+2026-11-23T22:19:06  nexahome/nexa-000110/status  retain=True  online
+2026-11-23T22:19:16  nexahome/nexa-000110/telemetry  retain=False  {"device":"nexa-000110","fw":"0.9.3-lab","temp":24.5,"hum":55.0,"led":"off","rssi":-73,"uptime":490,"ip":"10.13.37.2","mac":"24:0A:C4:00:01:10"}
+2026-11-23T22:19:29  nexahome/nexa-000110/telemetry  retain=False  {"device":"nexa-000110","fw":"0.9.3-lab","temp":24.5,"hum":55.0,"led":"off","rssi":-86,"uptime":500,"ip":"10.13.37.2","mac":"24:0A:C4:00:01:10"}
+2026-11-23T22:19:39  nexahome/nexa-000110/telemetry  retain=False  {"device":"nexa-000110","fw":"0.9.3-lab","temp":24.5,"hum":55.0,"led":"off","rssi":-85,"uptime":510,"ip":"10.13.37.2","mac":"24:0A:C4:00:01:10"}
+2026-11-23T22:19:49  nexahome/nexa-000110/telemetry  retain=False  {"device":"nexa-000110","fw":"0.9.3-lab","temp":24.5,"hum":55.0,"led":"off","rssi":-84,"uptime":520,"ip":"10.13.37.2","mac":"24:0A:C4:00:01:10"}
+2026-11-23T22:20:00  nexahome/nexa-000110/telemetry  retain=False  {"device":"nexa-000110","fw":"0.9.3-lab","temp":24.5,"hum":55.0,"led":"off","rssi":-89,"uptime":530,"ip":"10.13.37.2","mac":"24:0A:C4:00:01:10"}
+
+# Resumo
+# tópicos observados: ['nexahome/nexa-000110/status', 'nexahome/nexa-000110/telemetry']
+# campos presentes na telemetria/comandos: ['device', 'fw', 'hum', 'ip', 'led', 'mac', 'rssi', 'temp', 'uptime']

@@ -1,0 +1,5 @@
+# Bibliotecas do NexaSense (o Wokwi instala automaticamente)
+PubSubClient
+DHT sensor library
+Adafruit Unified Sensor
+ArduinoJson

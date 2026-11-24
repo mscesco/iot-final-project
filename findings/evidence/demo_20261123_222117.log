@@ -1,0 +1,13 @@
+2026-11-23T22:21:17  # Demonstração controlada - broker 127.0.0.1:1883 (sem TLS) - alvo nexa-000110
+2026-11-23T22:21:17  # usuário MQTT usado: nexasense (mesma credencial embutida no firmware de TODAS as unidades)
+2026-11-23T22:21:17  PASSO 1: aguardando estado inicial...
+2026-11-23T22:21:17  STATUS online
+2026-11-23T22:21:21  TELEMETRIA led=off {"device":"nexa-000110","fw":"0.9.3-lab","temp":24.5,"hum":55.0,"led":"off","rssi":-99,"uptime":600,"ip":"10.13.37.2","mac":"24:0A:C4:00:01:10"}
+2026-11-23T22:21:21  estado inicial do LED: off
+2026-11-23T22:21:21  PASSO: publicando {"led": "on"} em nexahome/nexa-000110/cmd
+2026-11-23T22:21:21  TELEMETRIA led=on {"device":"nexa-000110","fw":"0.9.3-lab","temp":24.5,"hum":55.0,"led":"on","rssi":-81,"uptime":600,"ip":"10.13.37.2","mac":"24:0A:C4:00:01:10"}
+2026-11-23T22:21:21  esperado led=on | observado led=on | CONFIRMADO
+2026-11-23T22:21:21  PASSO: publicando {"led": "off"} em nexahome/nexa-000110/cmd
+2026-11-23T22:21:21  TELEMETRIA led=off {"device":"nexa-000110","fw":"0.9.3-lab","temp":24.5,"hum":55.0,"led":"off","rssi":-94,"uptime":600,"ip":"10.13.37.2","mac":"24:0A:C4:00:01:10"}
+2026-11-23T22:21:21  esperado led=off | observado led=off | CONFIRMADO
+2026-11-23T22:21:22  # Conclusão: o comando foi aceito sem qualquer autorização por dispositivo ou por mensagem.

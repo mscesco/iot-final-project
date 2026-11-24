@@ -1,0 +1,48 @@
+// Fonte do diagrama. Regerar: dot -Tpng -Gdpi=150 architecture.dot -o architecture-diagram.png
+digraph NexaSense {
+  rankdir=LR;
+  graph [fontname="Helvetica", fontsize=12, bgcolor="white", pad=0.3, nodesep=0.35, ranksep=0.6,
+         label="NexaSense - laboratório virtual (Wokwi) - arquitetura e superfícies de ataque\nS1..S8 = superfícies analisadas  |  linha tracejada = presente no produto, não exercitável no simulador", labelloc=t];
+  node  [fontname="Helvetica", fontsize=10, shape=box, style="rounded,filled", fillcolor="#F2F4F7", color="#667085"];
+  edge  [fontname="Helvetica", fontsize=9, color="#475467"];
+
+  subgraph cluster_sim {
+    label="Simulador Wokwi (for VS Code) - representa a placa ESP32 DevKit"; style="rounded,dashed"; color="#B42318"; fontcolor="#B42318";
+    sensor [label="DHT22 / AM2302\nGPIO4, single-wire"];
+    led    [label="LED + 220 ohm\nGPIO2 (atuador)"];
+    subgraph cluster_mod {
+      label="ESP32 (SoC simulado)"; style="rounded"; color="#667085"; fontcolor="#344054";
+      mcu   [label="SoC ESP32 Xtensa LX6\nROM + eFuses\nWi-Fi 2.4 GHz", fillcolor="#E0EAFF"];
+      flash [label="Flash SPI 4 MB\napp0 | app1 | nvs | otadata", fillcolor="#E0EAFF"];
+    }
+    uart  [label="UART0 GPIO1 TX / GPIO3 RX\n115200 8N1\nlog de boot + console"];
+    la    [label="Analisador lógico virtual\nD0=TX0  D1=RX0  D2=GPIO4\n-> wokwi-logic.vcd", fillcolor="#FEF0C7"];
+    jtag  [label="JTAG GPIO12-15", style="rounded,dashed,filled"];
+  }
+
+  pc     [label="Notebook da aluna\nSerial Monitor, Wireshark,\nPulseView, scripts Python", fillcolor="#FEF0C7"];
+  gw     [label="Wokwi IoT Gateway (VS Code)\nAP aberto Wokwi-GUEST\nESP32 = 10.13.37.x\nhost.wokwi.internal -> PC", fillcolor="#FEF0C7"];
+  broker [label="Mosquitto LOCAL (notebook)\n127.0.0.1:1883 sem TLS + senha\n127.0.0.1:8883 TLS (reteste)", fillcolor="#D1FADF"];
+  obs    [label="mqtt_observer.py /\ndemo_controlled.py\n(no notebook)", fillcolor="#D1FADF"];
+  ota    [label="Servidor OTA HTTP local\n127.0.0.1:8000 (dinâmica)", fillcolor="#D1FADF"];
+
+  sensor -> mcu [label="leitura"];
+  mcu -> led    [label="comando"];
+  mcu -> flash  [label="SPI", dir=both];
+  mcu -> uart   [dir=both];
+  mcu -> jtag   [dir=both, style=dashed];
+  uart -> la    [label="sinal"];
+  uart -> pc    [label="Serial Monitor", dir=both];
+  la -> pc      [label="VCD"];
+  mcu -> gw     [label="Wi-Fi", dir=both];
+  gw -> broker  [label="MQTT telemetry/status\ncmd (host.wokwi.internal)", dir=both];
+  pc -> broker  [label="captura loopback\n(Wireshark/Npcap)", style=dotted];
+  broker -> obs [dir=both];
+  gw -> ota     [label="HTTP GET .bin\n(host.wokwi.internal:8000)"];
+
+  node [shape=circle, style=filled, fillcolor="#FEE4E2", color="#B42318", fontcolor="#B42318", fontsize=9, width=0.35, fixedsize=true];
+  S1 [label="S1"]; S2 [label="S2"]; S3 [label="S3"]; S4 [label="S4"];
+  S5 [label="S5"]; S6 [label="S6"]; S7 [label="S7"]; S8 [label="S8"];
+  edge [style=dotted, color="#B42318", arrowhead=none];
+  S1 -> uart; S2 -> mcu; S3 -> jtag; S4 -> flash; S5 -> broker; S6 -> ota; S7 -> gw; S8 -> sensor;
+}

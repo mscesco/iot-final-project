@@ -1,0 +1,9 @@
+# Registro de integridade do firmware
+arquivo:   firmware_original.bin  (origem: firmware.bin)
+tamanho:   871040 bytes
+formato:   imagem de aplicação ESP32 (começa com magic 0xE9 no offset 0)
+origem:    PlatformIO - pio run -e lab (NexaSense 0.9.3-lab)
+data_utc:  2026-11-24T01:13:02+00:00
+SHA-256:   d9d935b49b5c4b5dc60f130c52756a9062c65cde15e81bc2b0705047cd00a7fa
+copia:     firmware\work\firmware_work.bin  SHA-256 d9d935b49b5c4b5dc60f130c52756a9062c65cde15e81bc2b0705047cd00a7fa
+

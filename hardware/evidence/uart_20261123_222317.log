@@ -1,0 +1,14 @@
+# Captura UART0  origem=rfc2217://localhost:4000  baud=115200 8N1  inicio=2026-11-23T22:22:52.326198
+# comandos enviados: ['help', 'config']
+[  3.387] [tele] {"device":"nexa-000110","fw":"0.9.3-lab","temp":24.5,"hum":55.0,"led":"off","rssi":-65,"uptime":680,"ip":"10.13.37.2","mac":"24:0A:C4:00:01:10"}
+[  6.010] >>> help
+[  6.726] comando desconhecido
+[  6.727] >>> config
+[  7.442] wifi_ssid=Wokwi-GUEST
+[  7.443] wifi_pass=
+[  7.443] mqtt_host=host.wokwi.internal
+[  7.443] mqtt_port=1883
+[  7.444] mqtt_user=nexasense
+[  7.444] mqtt_pass=ne*************
+[  7.444] interval=10
+[ 13.778] [tele] {"device":"nexa-000110","fw":"0.9.3-lab","temp":24.5,"hum":55.0,"led":"off","rssi":-88,"uptime":690,"ip":"10.13.37.2","mac":"24:0A:C4:00:01:10"}

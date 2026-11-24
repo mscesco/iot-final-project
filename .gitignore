@@ -1,0 +1,27 @@
+# Segredos do laboratório - nunca publicar
+firmware-src/include/secrets.h
+firmware-src/include/ca_cert.h
+lab/mosquitto/passwd
+lab/mosquitto/certs/*.key
+lab/mosquitto/certs/*.srl
+
+# Imagens de firmware contêm credenciais em texto claro (NVS e strings)
+firmware/original/*.bin
+firmware/work/
+lab/ota/*.bin
+
+# Evidências brutas (sem máscara)
+**/evidence/raw/
+network/evidence/*.pcapng.raw
+
+# Build
+firmware-src/.pio/
+__pycache__/
+
+# Arquivos exportados do simulador com dados sem máscara
+*.vcd
+*.pcap
+*.pcapng
+
+# Notas de contexto locais (fora da entrega)
+CLAUDE.md

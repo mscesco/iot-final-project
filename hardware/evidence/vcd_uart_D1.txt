@@ -1,0 +1,9 @@
+# Decodificação UART do VCD do analisador lógico
+# arquivo: wokwi-logic.vcd  canal: D1  timescale: 1e-09 s
+# transições: 129  menor largura de pulso: 8.680 us (~115207 bit/s)
+# baud usado: 115200  formato: 8N1, LSB primeiro, nível ocioso alto
+# bytes decodificados: 21
+
+confirg
+help
+config

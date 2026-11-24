@@ -1,0 +1,20 @@
+# ACL do laboratório (broker local)
+#
+# CONFIGURAÇÃO DO PROTÓTIPO (o que a avaliação encontra):
+# a credencial compartilhada "nexasense" lê e escreve em QUALQUER tópico da frota.
+# É isso que a demonstração controlada (demo_controlled.py) explora: uma única
+# credencial, obtida de UMA unidade, comanda qualquer outra.
+user nexasense
+topic readwrite nexahome/#
+
+# Conta do painel / analista (somente leitura) - usada pelo mqtt_observer.py
+user analyst
+topic read nexahome/#
+
+# CONFIGURAÇÃO HARDENED (reteste) - comente os dois blocos acima e descomente abaixo.
+# %u = usuário da conexão = device id único (ex.: nexa-A1B2C3). Cada placa só publica a
+# própria telemetria/status e só lê o próprio tópico de comando. No reteste isto PODE ser
+# testado: a credencial de um device NÃO consegue comandar outro (ACL nega a publicação).
+#pattern write nexahome/%u/telemetry
+#pattern write nexahome/%u/status
+#pattern read  nexahome/%u/cmd

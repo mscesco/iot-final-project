@@ -1,0 +1,19 @@
+{
+  "arquivo": "firmware_original.bin",
+  "nome_na_origem": "firmware.bin",
+  "tamanho_bytes": 871040,
+  "formato": "imagem de aplicação ESP32 (começa com magic 0xE9 no offset 0)",
+  "sha256": "d9d935b49b5c4b5dc60f130c52756a9062c65cde15e81bc2b0705047cd00a7fa",
+  "sha256_origem": "d9d935b49b5c4b5dc60f130c52756a9062c65cde15e81bc2b0705047cd00a7fa",
+  "copia_identica_a_origem": true,
+  "origem": "PlatformIO - pio run -e lab (NexaSense 0.9.3-lab)",
+  "metodo": "download do binário compilado (equivalente a pacote de firmware do fabricante); aquisição física via ROM bootloader não aplicável no laboratório virtual",
+  "data_analise_utc": "2026-11-24T01:13:02+00:00",
+  "analista": "Camila Cesco",
+  "ferramentas": {
+    "python": "3.15.2",
+    "sistema": "Windows 11"
+  },
+  "copia_de_trabalho": "firmware\\work\\firmware_work.bin",
+  "sha256_copia_de_trabalho": "d9d935b49b5c4b5dc60f130c52756a9062c65cde15e81bc2b0705047cd00a7fa"
+}
